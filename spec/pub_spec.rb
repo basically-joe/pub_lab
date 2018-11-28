@@ -17,8 +17,12 @@ class PubTest < MiniTest::Test
     assert_equal(Pub, @pub.class())
   end
 
-  def test_add_money_to_till
-    assert_equal(1032, add_money_to_till(@customer))
-  end
+def test_customer_legal_age__true
+  assert_equal(true, @pub.customer_legal_age__true(@customer))
+end
+
+  # def test_add_money_to_till
+  #   assert_equal(1032, add_money_to_till(@customer))
+  # end
 
 end
