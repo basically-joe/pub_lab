@@ -40,9 +40,11 @@ class Pub
 
   def sell_drink_to_customer(customer, drink)
     if customer_legal_age__true(customer)
-      add_money_to_till(drink)
-      customer.customer_pay_for_drink(drink)
-      remove_drink_from_pub(drink)
+      if customer_drunk__true()
+        add_money_to_till(drink)
+        customer.customer_pay_for_drink(drink)
+        remove_drink_from_pub(drink)
+      end
     end
   end
 
@@ -51,7 +53,9 @@ class Pub
     for drink in @number_of_drinks_pub
       sum += drink.alcohol_level
     end
-    return sum
+    if sum >= 20
+      return true
+    end
   end
 
 end

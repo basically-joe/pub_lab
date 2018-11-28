@@ -54,7 +54,7 @@ class PubTest < MiniTest::Test
   def test_customer_drunk__true
     @pub.add_drink_to_pub(@drink)
     @pub.add_drink_to_pub(@drink1)
-    assert_equal(45, @pub.customer_drunk__true())
+    assert_equal(true, @pub.customer_drunk__true())
   end
 
 end
