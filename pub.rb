@@ -30,4 +30,8 @@ def drink_price(drink)
   drink.price
 end
 
+def add_money_to_till(drink)
+  @till_money += drink.price
+end
+
 end
