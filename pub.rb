@@ -3,11 +3,12 @@ class Pub
   attr_reader :pub_name
   attr_accessor :till_money, :number_of_drinks_pub
 
-  def initialize(pub_name, till_money, number_of_drinks_pub)
+  def initialize(pub_name, till_money)
 
     @pub_name = pub_name
     @till_money = till_money
-    @number_of_drinks_pub = number_of_drinks_pub
+    @number_of_drinks_pub = []
+
 
   end
 
@@ -17,7 +18,16 @@ class Pub
     end
   end
 
-def pub_sell_drink_to_customer(drink)
+def drink_count()
+  return @number_of_drinks_pub.length()
+end
+
+def add_drink_to_pub(drink)
+  @number_of_drinks_pub.push(drink)
+end
+
+def drink_price(drink)
+  drink.price
 end
 
 end
