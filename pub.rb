@@ -18,31 +18,40 @@ class Pub
     end
   end
 
-def drink_count()
-  return @number_of_drinks_pub.length()
-end
+  def drink_count()
+    return @number_of_drinks_pub.length()
+  end
 
-def add_drink_to_pub(drink)
-  @number_of_drinks_pub.push(drink)
-end
+  def add_drink_to_pub(drink)
+    @number_of_drinks_pub.push(drink)
+  end
 
-def drink_price(drink)
-  drink.price
-end
+  def drink_price(drink)
+    drink.price
+  end
 
-def add_money_to_till(drink)
-  @till_money += drink.price
-end
+  def add_money_to_till(drink)
+    @till_money += drink.price
+  end
 
-def remove_drink_from_pub(drink)
-  @number_of_drinks_pub.delete(drink)
-end
+  def remove_drink_from_pub(drink)
+    @number_of_drinks_pub.delete(drink)
+  end
 
-def sell_drink_to_customer(customer, drink)
-if customer_legal_age__true(customer)
-    add_money_to_till(drink)
-    remove_drink_from_pub(drink)
-end
-end
+  def sell_drink_to_customer(customer, drink)
+    if customer_legal_age__true(customer)
+      add_money_to_till(drink)
+      customer.customer_pay_for_drink(drink)
+      remove_drink_from_pub(drink)
+    end
+  end
+
+  def customer_drunk__true()
+    sum = 0
+    for drink in @number_of_drinks_pub
+      sum += drink.alcohol_level
+    end
+    return sum
+  end
 
 end
