@@ -16,11 +16,8 @@ class Pub
       return true
     end
   end
-  
 
-
-  # def add_money_to_till(customer)
-  # @till_money
-  # end
+def pub_sell_drink_to_customer(drink)
+end
 
 end

@@ -21,8 +21,10 @@ def test_customer_legal_age__true
   assert_equal(true, @pub.customer_legal_age__true(@customer))
 end
 
-  # def test_add_money_to_till
-  #   assert_equal(1032, add_money_to_till(@customer))
-  # end
+  def test_pub_sell_drink_to_customer
+    @pub.pub_sell_drink_to_customer(@drink)
+    assert_equal(1032, @pub.till_money)
+    assert_equal(0, @customer.customer_wallet)
+  end
 
 end
