@@ -11,4 +11,8 @@ def initialize(pub_name, till_money, number_of_drinks_pub)
 
 end
 
+def add_money_to_till(customer)
+@till_money
+end
+
 end
