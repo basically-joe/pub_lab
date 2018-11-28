@@ -34,4 +34,15 @@ def add_money_to_till(drink)
   @till_money += drink.price
 end
 
+def remove_drink_from_pub(drink)
+  @number_of_drinks_pub.delete(drink)
+end
+
+def sell_drink_to_customer(customer, drink)
+if customer_legal_age__true(customer)
+    add_money_to_till(drink)
+    remove_drink_from_pub(drink)
+end
+end
+
 end

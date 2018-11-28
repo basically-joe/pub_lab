@@ -11,6 +11,7 @@ class PubTest < MiniTest::Test
     @pub = Pub.new("Black Horse", 1000)
     @customer = Customer.new("Joe", 100, 32)
     @drink = Drink.new("beer", 2, "5%")
+    @drink1 = Drink.new("vodka", 4, "40%")
   end
 
   def test_can_create_pub
@@ -34,10 +35,20 @@ def test_add_money_to_till
   assert_equal(1002, @pub.add_money_to_till(@drink))
 end
 
-# def test_remove_drink_from_pub
-#   @pub.remove_drink_from_pub(@drink)
-#   assert_equal(0, @pub.drink_count())
-# end
+def test_remove_drink_from_pub
+  @pub.add_drink_to_pub(@drink)
+  @pub.add_drink_to_pub(@drink1)
+  @pub.remove_drink_from_pub(@drink)
+  assert_equal(1, @pub.drink_count())
+end
+
+def test_sell_drink_to_customer
+  @pub.add_drink_to_pub(@drink)
+  @pub.add_drink_to_pub(@drink1)
+  @pub.sell_drink_to_customer(@customer, @drink1)
+  assert_equal(1004, @pub.till_money)
+  assert_equal(1, @pub.drink_count())
+end
 
 # def test_add_money_to_till
 #   @pub.add_drink_to_pub(@drink)

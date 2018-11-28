@@ -20,4 +20,8 @@ class Customer
    end
   end
 
+  def customer_buy_drink(customer)
+    
+  end
+
 end
